@@ -1,21 +1,32 @@
-import { Grid, GridItem, Show } from "@chakra-ui/react"
-import NavBar from "./components/NavBar"
-import GameGrid from "./components/GameGrid"
-
+import { Grid, GridItem } from "@chakra-ui/react";
+import NavBar from "./components/Navbar/NavBar";
+import Aside from "./components/Aside/Aside";
+import Main from "./components/Main/FormUserManagement/FormUM";
 
 function App() {
   return (
-    <Grid templateAreas={{
-      base: `"nav" "main"`,
-      lg: `"nav   nav" "aside main"`,
-    }}>
-      <GridItem area='nav' bg='#2A55EE'><NavBar/></GridItem>
-      <Show above="lg">
-        <GridItem area='aside' >Aside</GridItem>
-      </Show>
-      <GridItem area='main'><GameGrid/></GridItem>
+    <Grid
+      templateAreas={{
+        base: `"aside nav" "aside main"`,
+        lg: `"aside nav" "aside main"`,
+      }}
+      templateRows="8% 1fr"
+      templateColumns="6% 1fr"
+      h="100vh" // Altura de toda la ventana
+    >
+      <GridItem area="nav" bg="white" w="100%" h="100%">
+        <NavBar />
+      </GridItem>
+
+      <GridItem area="aside" bg="dodgerblue" w="100%" h="100%">
+        <Aside />
+      </GridItem>
+
+      <GridItem area="main" bg="white" w="100%" h="100%">
+        <Main/>
+      </GridItem>
     </Grid>
-  )
+  );
 }
 
-export default App
+export default App;
