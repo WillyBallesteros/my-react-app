@@ -3,9 +3,10 @@ import { Heading } from "@chakra-ui/react";
 const AppName = () => {
   return (
     <Heading
-      paddingLeft={2}
+      paddingLeft={5}
       size="lg"
-      fontWeight="normal"
+      fontWeight="bold"
+      fontFamily="sans-serif"
     >
       ABCall
     </Heading>
