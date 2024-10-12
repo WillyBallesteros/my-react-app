@@ -117,7 +117,7 @@ const FormUM = () => {
     </Divider>
     <Box paddingTop="2%" w="76%" display="flex" justifyContent="flex-end">
         <Button  marginRight="4" w="12%">Cancelar</Button>
-        <Button colorScheme="blue" w="12%">Crear</Button>
+        <Button bg="#0056f0" w="12%" color={"white"}>Crear</Button>
       </Box>
 
     </Box>
