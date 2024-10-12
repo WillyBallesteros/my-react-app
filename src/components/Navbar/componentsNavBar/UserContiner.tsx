@@ -1,14 +1,17 @@
-import { Box, Text, HStack } from "@chakra-ui/react";
+import { Box, Text, HStack, useColorModeValue  } from "@chakra-ui/react";
 import UserImage from "./UserImage";
 
 const UserContiner = () => {
+
+  const color = useColorModeValue("black", "white");
+
   return (
     <Box
       border="1px"
       borderColor="#aaaaaa"
       as="button"
       borderRadius="md"
-      color="black"
+      color={color}
     >
       <HStack>
         <Text p="10px">Jhon Doe</Text>
