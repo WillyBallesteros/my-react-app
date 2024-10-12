@@ -2,6 +2,7 @@
     width: 80px;
     height: 100vh;
     padding: 10px 0;
+
 }
 
 .logo {
@@ -27,6 +28,10 @@
     color: white;
     cursor: pointer;
     position: relative;
+}
+
+.menuItem:hover {
+    background-color: #003cb3;
 }
 
 .icon {

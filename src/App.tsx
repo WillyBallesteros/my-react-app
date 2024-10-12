@@ -1,48 +1,46 @@
-import { Box, Grid, GridItem, useColorModeValue  } from "@chakra-ui/react";
-import NavBar from "./components/Navbar/NavBar";
-import Aside from "./components/Aside/Aside";
-import Main from "./components/Main/FormUserManagement/FormUM";
-import FormUM from "./components/Main/FormUserManagement/FormUM";
-import Sidebar from "./components/Aside/Aside";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import Dashboard from "./pages/Dashboard";
+import PrivateRoute from "./components/PrivateRoute";
+import Summary from "./pages/Summary";
+import Users from "./pages/Users";
+import Incidents from "./pages/Incidents";
+import Plans from "./pages/Plans";
+import Roles from "./pages/Roles";
+import Activity from "./pages/Activity";
+import Create from "./pages/Create";
+import Admin from "./pages/Admin";
 
 function App() {
-
-  const bg = useColorModeValue("white", "gray.800");
-  const color = useColorModeValue("black", "white");
-  const sidebg = useColorModeValue("#0056f0", "gray.800");
-  const mainbg = useColorModeValue("white", "gray.700");
-
   return (
-    <Grid
-      templateAreas={{
-        base: `"aside nav" "aside main"`,
-        lg: `"aside nav" "aside main"`,
-      }}
-      templateRows="9% 1fr"
-      templateColumns="5% 1fr"
-      h="100vh" // Altura de toda la ventana
-    >
-      <GridItem area="nav" bg={bg} color={color} w="100%" h="100%">
-        <NavBar />
-      </GridItem>
+    <Router>
+      <Routes>
+        {/* Public Routes */}
+        <Route path="/" element={<SignIn />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
 
-      <GridItem area="aside" bg={sidebg} w="100%" h="100%" display="flex" alignItems="center" justifyContent="center">
-        <Sidebar />
-      </GridItem>
-
-      <GridItem
-        area="main"
-        bg={mainbg}
-        w="100%"
-        h="100%"
-        display="flex"
-        padding={"2% 0 0 12%"}
-      >
-        <Box w="80vw" h="auto">
-          <FormUM />
-        </Box>
-      </GridItem>
-    </Grid>
+        {/* Private Routes inside Dashboard */}
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        >
+          <Route path="summary" element={<Summary />} />
+          <Route path="users" element={<Users />} />
+          <Route path="incidents" element={<Incidents />} />
+          <Route path="plans" element={<Plans />} />
+          <Route path="roles" element={<Roles />} />
+          <Route path="activity" element={<Activity />} />
+          <Route path="create" element={<Create />} />
+          <Route path="admin" element={<Admin />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 
