@@ -12,8 +12,8 @@ function App() {
         base: `"aside nav" "aside main"`,
         lg: `"aside nav" "aside main"`,
       }}
-      templateRows="8vh 1fr"
-      templateColumns="5vw 1fr"
+      templateRows="10% 1fr"
+      templateColumns="5% 1fr"
       h="100vh" // Altura de toda la ventana
     >
       <GridItem area="nav" bg="white" w="100%" h="100%">
@@ -30,9 +30,9 @@ function App() {
         w="100%"
         h="100%"
         display="flex"
-        padding={"4vh 0 0 12vw"}
+        padding={"2% 0 0 12%"}
       >
-        <Box w="80%" h="100%">
+        <Box w="80vw" h="auto">
           <FormUM />
         </Box>
       </GridItem>

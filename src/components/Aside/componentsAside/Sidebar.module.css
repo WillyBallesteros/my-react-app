@@ -2,7 +2,6 @@
     width: 80px;
     height: 100vh;
     padding: 10px 0;
-
 }
 
 .logo {
@@ -30,12 +29,13 @@
     position: relative;
 }
 
-.menuItem:hover {
-    background-color: #003cb3;
-}
-
 .icon {
     font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
 }
 
 .name {
@@ -43,9 +43,14 @@
     margin-top: 5px;
 }
 
-.active {
+.activeIcon {
     background-color: #fff;
     color: #0056f0;
-    border-radius: 30px;
+    border-radius: 15px;
     /* Oval shape */
+    width: 75%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
