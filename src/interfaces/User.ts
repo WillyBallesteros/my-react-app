@@ -1,3 +1,5 @@
+import { Role } from "./Role";
+
 export interface User {
     id: number;
     name: string; 
@@ -6,5 +8,6 @@ export interface User {
     status: 'Active' | 'Completed' | 'Inactive'; 
     createdAt?: string;
     updatedAt?: string;
+    roles: Role[];
   }
   

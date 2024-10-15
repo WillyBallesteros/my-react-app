@@ -15,26 +15,16 @@ import {
   useDisclosure,
   HStack,
   Text,
-  Select,
 } from "@chakra-ui/react";
 import { AddIcon, EditIcon, DeleteIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { useState } from "react";
-import { EditUserModal } from "../components/Users/EditUserModal";
-import { CreateUserModal } from "../components/Users/CreateUserModal"; // Importamos el modal de Crear Usuario
-import { User } from "../interfaces/User"; // Asegúrate de importar tu interfaz User
+import { UserModal } from "../components/Users/UserModal";
+import { User } from "../interfaces/User";
 
 const Users = () => {
   const [selectedUser, setSelectedUser] = useState<User | undefined>(undefined);
-  const {
-    isOpen: isEditOpen,
-    onOpen: onEditOpen,
-    onClose: onEditClose,
-  } = useDisclosure();
-  const {
-    isOpen: isCreateOpen,
-    onOpen: onCreateOpen,
-    onClose: onCreateClose,
-  } = useDisclosure(); // Control del modal de Crear Usuario
+  const [mode, setMode] = useState<"create" | "edit">("create");
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const users: User[] = [
     {
@@ -45,6 +35,7 @@ const Users = () => {
       status: "Active",
       createdAt: "Nov 30, 2023",
       updatedAt: "Dec 11, 2023",
+      roles: [],
     },
     {
       id: 2,
@@ -54,12 +45,20 @@ const Users = () => {
       status: "Completed",
       createdAt: "Jun 18, 2023",
       updatedAt: "Nov 9, 2023",
+      roles: [],
     },
   ];
 
   const handleEdit = (user: User) => {
     setSelectedUser(user);
-    onEditOpen(); // Abre el modal de editar
+    setMode("edit");
+    onOpen();
+  };
+
+  const handleCreate = () => {
+    setSelectedUser(undefined);
+    setMode("create");
+    onOpen();
   };
 
   return (
@@ -71,13 +70,12 @@ const Users = () => {
         <Button
           colorScheme="blue"
           leftIcon={<AddIcon />}
-          onClick={onCreateOpen}
+          onClick={handleCreate}
         >
           Crear Usuario
         </Button>
       </HStack>
 
-      {/* Tabla de usuarios */}
       <Table variant="simple" mt={4}>
         <Thead>
           <Tr>
@@ -123,15 +121,12 @@ const Users = () => {
         </Tbody>
       </Table>
 
-      {/* Modal para editar usuario */}
-      <EditUserModal
-        isOpen={isEditOpen}
-        onClose={onEditClose}
-        user={selectedUser}
+      <UserModal
+        isOpen={isOpen}
+        onClose={onClose}
+        initialData={selectedUser}
+        mode={mode}
       />
-
-      {/* Modal para crear usuario */}
-      <CreateUserModal isOpen={isCreateOpen} onClose={onCreateClose} />
     </Box>
   );
 };
