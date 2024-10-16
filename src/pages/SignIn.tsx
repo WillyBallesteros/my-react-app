@@ -44,7 +44,7 @@ const SignInForm = () => {
 
   const onSubmit = (data: FormData) => {
     console.log(data);
-    debugger;
+    /* debugger; */
     localStorage.setItem("authToken", "12334445566");
     navigate("/dashboard"); // Redirige al dashboard después del inicio de sesión
   };
