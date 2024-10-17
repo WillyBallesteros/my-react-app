@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Image } from "@chakra-ui/react";
+import { GoPlusCircle } from "react-icons/go";
 import styles from "./componentsAside/Sidebar.module.css";
 import logo from "../../assets/logo.webp";
 import {
-  Plus,
   BarChartLine,
   CalendarEvent,
   CashStack,
@@ -19,7 +19,7 @@ const Sidebar = () => {
   const navigate = useNavigate();
 
   const menuItems = [
-    { name: "Crear", icon: <Plus />, path: "/dashboard/create" },
+    { name: "Crear", icon: <GoPlusCircle />, path: "/dashboard/create" },
     { name: "Resumen", icon: <BarChartLine />, path: "/dashboard/summary" },
     { name: "Usuario", icon: <Person />, path: "/dashboard/users" },
     {

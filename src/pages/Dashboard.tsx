@@ -13,20 +13,27 @@ const Dashboard: React.FC = () => {
     <Grid
       templateAreas={{
         base: `"nav" "main"`,
-        lg: `"aside nav" "aside main"`,
+        lg: `"aside nav nav nav nav nav nav nav nav nav nav nav" 
+            "aside main main main main main main main main main main main"`,
       }}
-      templateRows="8vh 1fr"
-      templateColumns={{ base: "1fr", lg: "5vw 1fr" }}
+      templateRows={{
+        base:"1fr",
+        lg:"9vh 1fr"
+      }}
+      templateColumns={{
+        base: "1fr",
+        lg: "6vw 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr",
+      }}
       h="100vh"
     >
-      <GridItem area="nav" bg={bg} color={color} w="100%" h="100%">
+      <GridItem boxShadow="lg" zIndex="1" area="nav" bg={bg} color={color} w="100%" h="9vh">
         <NavBar />
-      </GridItem>
+      </GridItem>                                                                                                                                                                                                                                                                                                                         
 
       <GridItem
         area="aside"
         bg={sidebg}
-        w="100%"
+        w="6vw"
         h="100%"
         display={{ base: "none", lg: "flex" }}
         alignItems="center"
