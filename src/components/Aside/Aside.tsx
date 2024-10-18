@@ -49,13 +49,13 @@ const Sidebar = () => {
             onClick={() => handleMenuClick(item)}
           >
             <span
-              className={`${styles.icon} ${
+              className={`${styles.iconContainer} ${
                 active === item.name ? styles.activeIcon : ""
               }`}
             >
-              {item.icon}
+              <span className={styles.icon}>{item.icon}</span>
+              <span className={styles.name}>{item.name}</span>
             </span>
-            <span className={styles.name}>{item.name}</span>
           </li>
         ))}
       </ul>

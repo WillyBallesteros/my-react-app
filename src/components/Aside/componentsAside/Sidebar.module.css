@@ -39,13 +39,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    
+}
+
+.iconContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+    border-radius: 15px;
+    padding: 1px 0;
 }
 
 .name {
     font-size: 12px;
-    margin-top: 5px;
+    margin-top: 2px;
 }
 
 .activeIcon {
